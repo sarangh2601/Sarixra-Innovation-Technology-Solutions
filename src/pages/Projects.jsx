@@ -56,7 +56,7 @@ const Projects = () => {
     {
       id: 7,
       title: "QuickCounter",
-      img: "quickcounter.png",
+      img: "qq.png",
       shortDesc: "Real-time counter and number generator app.",
       longDesc: "QuickCounter is a simple yet efficient web application that allows users to generate and track numbers in real-time. Built with React, JavaScript, and Tailwind CSS. It features a clean interface with interactive buttons, smooth transitions, and instant updates. This tool is ideal for tracking counts or generating unique numbers quickly. Technologies: React, JavaScript, Tailwind CSS.",
       techStack: ["React", "JavaScript", "Tailwind CSS"],
@@ -72,11 +72,19 @@ const Projects = () => {
     {
       id: 9,
       title: "ImgWorld",
-      img: "imgworld.png",
+      img: "iw.png",
       shortDesc: "Image management and gallery platform.",
       longDesc: "ImgWorld is a professional image management platform allowing users to upload, organize, and share images. Features include albums, search, filters, and responsive UI. Built using React, Node.js, Express, and MongoDB with Tailwind CSS for styling. Technologies: React, Node.js, Express, MongoDB, Tailwind CSS.",
       techStack: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
     },
+    {
+      id: 10,
+      title: "NotifyNotes Web App",
+      img: "nn.png",
+      shortDesc: "A smart notes app with notifications and reminders.",
+      longDesc: "NotifyNotes Web App is a productivity-focused application that allows users to create, manage, and organize notes with built-in notification and reminder features. It helps users stay on track by sending timely alerts for important tasks and deadlines. The app includes a clean and user-friendly interface, real-time updates, and secure data handling. Built using modern web technologies, it ensures a fast and responsive experience across devices. Technologies: React, Tailwind CSS, JavaScript, Firebase.",
+      techStack: ["React", "Tailwind CSS", "JavaScript", "Firebase"],
+    }
   ];
 
   return (
