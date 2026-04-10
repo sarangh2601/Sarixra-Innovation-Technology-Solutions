@@ -25,17 +25,40 @@ const Header = ({ openModal }) => {
 
           <ul className="flex gap-8 font-semibold">
 
-            {["Home", "About", "Services", "Our Projects", "Contact Us"].map((item, index) => (
-              <li key={index} className="relative group cursor-pointer">
-                <a
-                  href={item === "Home" ? "/" : `/${item.toLowerCase().replace(/\s+/g, "")}`}
-                  className="transition-colors duration-300"
-                >
-                  {item}
-                </a>
-                <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"></span>
-              </li>
-            ))}
+            <li className="relative group cursor-pointer">
+              <a href="/" className="transition-colors duration-300">
+                Home
+              </a>
+              <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"></span>
+            </li>
+
+            <li className="relative group cursor-pointer">
+              <a href="/about" className="transition-colors duration-300">
+                About
+              </a>
+              <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"></span>
+            </li>
+
+            <li className="relative group cursor-pointer">
+              <a href="/services" className="transition-colors duration-300">
+                Services
+              </a>
+              <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"></span>
+            </li>
+
+            <li className="relative group cursor-pointer">
+              <a href="/ourprojects" className="transition-colors duration-300">
+                Our Projects
+              </a>
+              <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"></span>
+            </li>
+
+            <li className="relative group cursor-pointer">
+              <a href="/contactus" className="transition-colors duration-300">
+                Contact Us
+              </a>
+              <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"></span>
+            </li>
 
           </ul>
 
