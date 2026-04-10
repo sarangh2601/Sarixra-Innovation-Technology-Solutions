@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { FiArrowRight } from "react-icons/fi"; // import the icon
+import { FiArrowRight } from "react-icons/fi";
 import TopNav from "./TopNav";
+import { Link } from "react-router-dom";
 
 const Header = ({ openModal }) => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -11,11 +12,13 @@ const Header = ({ openModal }) => {
 
   return (
     <>
-      {/* NAVBAR */}
+      {/* TOP NAV */}
       <TopNav />
+
+      {/* NAVBAR */}
       <nav className="w-full flex justify-between items-center px-6 md:px-[80px] py-[10px] bg-blue-100 sticky top-0 z-50">
 
-        {/* Logo */}
+        {/* LOGO */}
         <div className="w-[60%] md:w-[18%]">
           <img src="/Sarixra-logo-2.png" alt="logo" />
         </div>
@@ -24,45 +27,22 @@ const Header = ({ openModal }) => {
         <div className="hidden md:flex justify-between items-center gap-10">
 
           <ul className="flex gap-8 font-semibold">
+            {["Home", "About", "Services", "Our Projects", "Contact Us"].map((item, index) => (
+              <li key={index} className="relative group cursor-pointer">
+                <Link
+                  to={item === "Home" ? "/" : `/${item.toLowerCase().replace(/\s+/g, "")}`}
+                  className="transition-colors duration-300"
+                >
+                  {item}
+                </Link>
 
-            <li className="relative group cursor-pointer">
-              <a href="/" className="transition-colors duration-300">
-                Home
-              </a>
-              <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"></span>
-            </li>
-
-            <li className="relative group cursor-pointer">
-              <a href="/about" className="transition-colors duration-300">
-                About
-              </a>
-              <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"></span>
-            </li>
-
-            <li className="relative group cursor-pointer">
-              <a href="/services" className="transition-colors duration-300">
-                Services
-              </a>
-              <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"></span>
-            </li>
-
-            <li className="relative group cursor-pointer">
-              <a href="/ourprojects" className="transition-colors duration-300">
-                Our Projects
-              </a>
-              <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"></span>
-            </li>
-
-            <li className="relative group cursor-pointer">
-              <a href="/contactus" className="transition-colors duration-300">
-                Contact Us
-              </a>
-              <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"></span>
-            </li>
-
+                {/* UNDERLINE HOVER */}
+                <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"></span>
+              </li>
+            ))}
           </ul>
 
-          {/* Button */}
+          {/* BUTTON */}
           <button
             onClick={openModal}
             className="flex items-center gap-2 bg-black text-white py-2 px-6 rounded-lg hover:bg-white hover:text-black border border-black transition"
@@ -73,7 +53,7 @@ const Header = ({ openModal }) => {
 
         </div>
 
-        {/* MOBILE BUTTON */}
+        {/* MOBILE MENU BUTTON */}
         <button onClick={toggleMenu} className="md:hidden text-4xl">
           ☰
         </button>
@@ -83,11 +63,25 @@ const Header = ({ openModal }) => {
       {/* MOBILE MENU */}
       {menuOpen && (
         <div className="md:hidden flex flex-col items-center gap-6 py-6 bg-blue-100 font-semibold">
-          <a href="/">Home</a>
-          <a href="/about">About</a>
-          <a href="/services">Services</a>
-          <a href="/ourprojects">Our Projects</a>
-          <a href="/contactus">Contact Us</a>
+
+          <Link to="/" onClick={toggleMenu}>Home</Link>
+          <Link to="/about" onClick={toggleMenu}>About</Link>
+          <Link to="/services" onClick={toggleMenu}>Services</Link>
+          <Link to="/ourprojects" onClick={toggleMenu}>Our Projects</Link>
+          <Link to="/contactus" onClick={toggleMenu}>Contact Us</Link>
+
+          {/* MOBILE BUTTON */}
+          <button
+            onClick={() => {
+              toggleMenu();
+              openModal();
+            }}
+            className="flex items-center gap-2 bg-black text-white py-2 px-6 rounded-lg hover:bg-white hover:text-black border border-black transition"
+          >
+            Get Start
+            <FiArrowRight className="w-5 h-5" />
+          </button>
+
         </div>
       )}
     </>

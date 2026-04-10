@@ -8,6 +8,7 @@ import {
   Phone,
   MapPin
 } from "lucide-react";
+import {Link} from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -54,11 +55,22 @@ const Footer = () => {
           <h3 className="text-lg font-semibold mb-4 text-black">Quick Links</h3>
 
           <ul className="space-y-3 text-gray-700">
-            <li><a href="/" className="hover:text-blue-500 transition">Home</a></li>
-            <li><a href="/about" className="hover:text-blue-500 transition">About Us</a></li>
-            <li><a href="/services" className="hover:text-blue-500 transition">Services</a></li>
-            <li><a href="/ourprojects" className="hover:text-blue-500 transition">Our Projects</a></li>
-            <li><a href="/contactus" className="hover:text-blue-500 transition">Contact</a></li>
+            {[
+              { name: "Home", path: "/" },
+              { name: "About Us", path: "/about" },
+              { name: "Services", path: "/services" },
+              { name: "Our Projects", path: "/ourprojects" },
+              { name: "Contact", path: "/contactus" }
+            ].map((link, index) => (
+              <li key={index}>
+                <Link
+                  to={link.path}
+                  className="hover:text-blue-500 transition"
+                >
+                  {link.name}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
 
